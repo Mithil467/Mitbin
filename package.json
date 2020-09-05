@@ -1,0 +1,29 @@
+{
+  "name": "mitbin",
+  "version": "1.0.0",
+  "description": "URL shortener and pastebin",
+  "main": "app.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node app",
+    "dev": "cross-env NODE_ENV=development nodemon app "
+  },
+  "keywords": [
+    "pastebin",
+    "url-shortener"
+  ],
+  "author": "Mithil Poojary",
+  "license": "GPL3",
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.10.3",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
