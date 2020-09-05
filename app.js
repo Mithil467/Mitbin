@@ -3,11 +3,15 @@ const dotenv = require("dotenv");
 const exphbs = require("express-handlebars");
 const path = require("path");
 const bodyParser = require("body-parser");
+const connectDB = require('./config/db')
+
 
 // Load Config
 dotenv.config();
 
 const app = express();
+
+connectDB();
 
 // Bodyparser
 app.use(bodyParser.urlencoded({ extended: false }));
