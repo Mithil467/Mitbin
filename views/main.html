@@ -54,19 +54,4 @@
     {% block content %}{% endblock %}
     <script src="scripts/prism.js"></script>
   </body>
-
-  <script>
-    document
-      .getElementById("pastename")
-      .addEventListener("input", async (e) => {
-        const name = e.target.value;
-        const response = await fetch("/api/paste?name=" + name);
-        const users = await response.json();
-        if (users.exist === false)
-          e.target.setCustomValidity(`The paste "${name}" already exists!`);
-        else e.target.setCustomValidity("");
-
-        e.target.reportValidity();
-      });
-  </script>
 </html>
