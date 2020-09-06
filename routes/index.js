@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const nunjucks = require('nunjucks');
 const Paste = require("../models/Paste");
 
 router.get("/", (req, res) => res.render("home", { title: "MitBin" }));
@@ -32,24 +33,13 @@ router.get("/:name", async (req, res) => {
   res.render("sample", {
     title: name + " - MitBin",
     name: name,
-    language: paste.language,
-    content: escape(paste.content),
+    language: "language-" + paste.language,
+    content: paste.content,
     createdAt: paste.createdAt,
     expiresAt: paste.expiresAt,
     timestamps: name !== "about",
-    helpers: {
-      localeDate: function (date) {
-        return date.toLocaleString();
-      },
-    },
   });
 });
-
-const escape = (s) => {
-    s = s.replace('<', '&lt;');
-    s = s.replace('>', '&gt;');
-    return s;
-}
 
 router.get("/api/paste", async (req, res) => {
   name = req.query.name;

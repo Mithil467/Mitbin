@@ -1,6 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const exphbs = require("express-handlebars");
+const nunjucks = require("nunjucks");
 const path = require("path");
 const bodyParser = require("body-parser");
 const connectDB = require('./config/db')
@@ -17,9 +17,12 @@ connectDB();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Handlebars
-app.engine(".hbs", exphbs({ defaultLayout: "main", extname: ".hbs" }));
-app.set("view engine", ".hbs");
+// Nunjucks
+nunjucks.configure('views', {
+    autoescape: true,
+    express: app
+});
+app.set('view engine', 'html');
 
 
 // Static folder

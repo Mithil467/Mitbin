@@ -1,16 +1,21 @@
+{% extends "main.html" %}
+
+{% block content %}
 <div class="container">
-    <legend>{{{name}}}</legend>
-    <pre class="line-numbers"><code class="language-{{{language}}}">{{{content}}}</code></pre>
-    {{#if timestamps}}
-    <p>Created on {{{localeDate createdAt}}}</p>
-    <p>Expires on {{{localeDate expiresAt}}}</p>
-    {{else}}
+    <legend>{{ name }}</legend>
+    <pre class="line-numbers"><code class="{{ language }}">{{ content }}</code></pre>
+    {% if timestamps %}
+    <p>Created on {{ createdAt.toLocaleString() }}</p>
+    <p>Expires on {{ expiresAt.toLocaleString() }}</p>
+    {% else %}
     <center>
         <a href="https://twitter.com/MithilPoojary"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
         &nbsp;
         <a href="https://github.com/Mithil467"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
         &nbsp;
         <a href="https://www.linkedin.com/in/mithil-poojary"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
-        {{/if}}
     </center>
+    {% endif %}
 </div>
+
+{% endblock %}
