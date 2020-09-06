@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const nunjucks = require('nunjucks');
+const nunjucks = require("nunjucks");
 const Paste = require("../models/Paste");
+const isValidHttpUrl = require("../helper/calculations");
 
 router.get("/", (req, res) => res.render("home", { title: "MitBin" }));
 
@@ -25,11 +26,13 @@ router.get("/:name", async (req, res) => {
   paste = await Paste.findOne({ name: name }).catch((err) => {
     throw err;
   });
-  if(paste === null)
-  {
-    res.redirect('/');
+  if (paste === null) {
+    return res.redirect("/");
   }
-  
+  if (isValidHttpUrl(paste.content)) {
+    return res.redirect(paste.content);
+  }
+
   res.render("sample", {
     title: name + " - MitBin",
     name: name,
@@ -46,7 +49,7 @@ router.get("/api/paste", async (req, res) => {
   paste = await Paste.findOne({ name: name }).catch((err) => {
     throw err;
   });
-  res.json({"exist": paste===null});
+  res.json({ exist: paste === null });
 });
 
 module.exports = router;
