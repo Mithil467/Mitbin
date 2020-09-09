@@ -14,11 +14,12 @@ router.post("/", async (req, res) => {
   );
 
   paste.save((err) => {
-    if (err) return handleError(err);
+    if (err) {
+      console.error(err);
+    }
   });
 
-  name = req.body.name;
-  res.redirect("/" + name);
+  res.redirect("/" + paste.name);
 });
 
 router.get("/:name", async (req, res) => {
