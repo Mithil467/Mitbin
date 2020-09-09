@@ -1,4 +1,12 @@
-{% extends "main.html" %} {% block content %}
+{% extends "main.html" %}
+
+{% block metacontent %}
+<meta property="og:title" content="A simple pastebin and URL shortener" />
+<meta property="og:description" content="Paste some content to save as a paste or URL to act as URL shortener" />
+<meta property="og:image" content="https://raw.githubusercontent.com/Mithil467/Mitbin/image/Mitbin.png" />
+{% endblock %}
+
+{% block content %}
 <div class="container">
   <form action="/" method="POST" id="pasteForm">
     <fieldset>

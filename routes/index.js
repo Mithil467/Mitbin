@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
   const paste = new Paste(req.body);
 
   paste.expiresAt = new Date(
-    new Date().getTime() + req.body.expires * 1440 * 60000
+    new Date().getTime() + req.body.expires * 1440 * 60000;
   );
 
   paste.save((err) => {
