@@ -50,7 +50,6 @@
           id="content"
           rows="12"
           name="content"
-          minlength="6"
           required
         ></textarea>
       </div>
@@ -102,7 +101,7 @@
     const name = e.target.value;
     const response = await fetch("/api/paste?name=" + name);
     const users = await response.json();
-    if (users.exist === false)
+    if (users && users.length > 0)
       e.target.setCustomValidity(`The paste "${name}" already exists!`);
     else e.target.setCustomValidity("");
 

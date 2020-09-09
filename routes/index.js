@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const nunjucks = require("nunjucks");
 const Paste = require("../models/Paste");
 const isValidHttpUrl = require("../helper/calculations");
 
@@ -43,14 +42,6 @@ router.get("/:name", async (req, res) => {
     expiresAt: paste.expiresAt,
     timestamps: name !== "about",
   });
-});
-
-router.get("/api/paste", async (req, res) => {
-  name = req.query.name;
-  paste = await Paste.findOne({ name: name }).catch((err) => {
-    throw err;
-  });
-  res.json({ exist: paste === null });
 });
 
 module.exports = router;
