@@ -8,11 +8,11 @@ Mitbin is my attempt to make a pastebin and url shortener<br/>
 </p>
 
 ### Features  
-🔗 Simple custom URL 
+🔗 Simple custom URL  
 ✂️ To use as a URL shortener, add the link in paste content  
 ⏰ Self expiring based on custom time  
 🖊️ Syntax highlighting for program snippets  
-🖤 Simple elegant UI
+🖤 Simple elegant UI  
 😉 Mitbin API
 
 ### API usage and documentation
