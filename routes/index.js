@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const moment = require('moment');
 const Paste = require("../models/Paste");
 const isValidHttpUrl = require("../helper/calculations");
 
@@ -38,8 +39,8 @@ router.get("/:name", async (req, res) => {
     name: name,
     language: "language-" + paste.language,
     content: paste.content,
-    createdAt: paste.createdAt,
-    expiresAt: paste.expiresAt,
+    createdAt: moment.duration(new moment().diff(paste.createdAt)).humanize(),
+    expiresAt: moment.duration(new moment(paste.expiresAt).diff(new moment())).humanize(),
     timestamps: name !== "about",
   });
 });

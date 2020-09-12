@@ -12,8 +12,8 @@
     <legend>{{ name }}</legend>
     <pre class="line-numbers"><code class="{{ language }}">{{ content }}</code></pre>
     {% if timestamps %}
-    <p id="createdAt">Created on {{ createdAt }}</p>
-    <p id="expiresAt">Expires on {{ expiresAt }}</p>
+    <p id="createdAt">Created before {{ createdAt }}</p>
+    <p id="expiresAt">Expires in {{ expiresAt }}</p>
     {% else %}
     <center>
         <a href="https://twitter.com/MithilPoojary"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>

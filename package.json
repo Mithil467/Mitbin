@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node app",
-    "dev": "cross-env NODE_ENV=development nodemon app "
+    "dev": "cross-env NODE_ENV=development nodemon -e html app "
   },
   "keywords": [
     "pastebin",
@@ -20,6 +20,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "moment": "^2.27.0",
     "mongoose": "^5.10.3",
     "nunjucks": "^3.2.2",
     "passport": "^0.4.1",
